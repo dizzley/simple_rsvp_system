@@ -1,0 +1,65 @@
+body {
+  background: #fff;
+  font-size: 13px;
+  font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+  color: #000;
+  line-height: 1.28;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  direction: ltr;
+  unicode-bidi: embed;
+}
+a {
+  color:#006699;
+  text-decoration:none;
+}
+a:hover { border-bottom:1px dotted #444; }
+.navbar {
+  margin:0 auto;
+  padding:10px;
+  background:#eee;
+  text-align:center;
+}
+.namelist {
+  margin:10px auto;
+  width:500px;
+  padding:10px;
+}
+.list_details {
+  margin:0 auto 10px auto;
+  padding:10px;
+  border:1px solid #ccc;
+  line-height:20px;
+  background:#fcfcfc;
+  letter-spacing:1px;
+}
+.list_delete {
+  float:right;
+  padding:3px 5px 3px 5px;
+  border:1px solid #eee;
+  background:#f3f3f3;
+}
+.list_name { text-transform:uppercase; }
+.list_phone, .list_email { text-transform:lowercase; }
+.list_copy {
+  margin:10px auto;
+  text-align:center;
+  font-size:10px;
+  color:#999;
+}
+.list_info {
+  margin:10px auto;
+}
+.attending { background:#9C0;color:#fff;padding:0 5px; }
+.not_attending { background:#f00;color:#fff;padding:0 5px; }
+.total { background:#90C;color:#fff;padding:0 5px; }
+.list_search {
+  margin:5px auto;
+  width:500px;
+}
+.search { width:420px;padding:5px; }
+.search_button {
+  padding:5px;
+}
+  
