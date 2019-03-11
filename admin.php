@@ -27,19 +27,19 @@ require('auth/auth.php');
 
 include('config.php');
 
-$result = mysql_query("SELECT * FROM simple_rsvp ORDER BY name") or die(mysql_error());
-$total_users = mysql_num_rows($result);
-$bystatus_yes = mysql_query("SELECT status FROM simple_rsvp WHERE status='Yes'") or die(mysql_error());
-$total_yes = mysql_num_rows($bystatus_yes);
-$bystatus_no = mysql_query("SELECT status FROM simple_rsvp WHERE status='No'") or die(mysql_error());
-$total_no = mysql_num_rows($bystatus_no);
+$result = mysqli_query($connection, "SELECT * FROM simple_rsvp ORDER BY name") or die(mysqli_error());
+$total_users = mysqli_num_rows($result);
+$bystatus_yes = mysqli_query($connection, "SELECT status FROM simple_rsvp WHERE status='Yes'") or die(mysqli_error());
+$total_yes = mysqli_num_rows($bystatus_yes);
+$bystatus_no = mysqli_query($connection, "SELECT status FROM simple_rsvp WHERE status='No'") or die(mysqli_error());
+$total_no = mysqli_num_rows($bystatus_no);
 
 echo '<div class="namelist">';
 echo '<div class="list_info"><span class="attending"><strong>' . $total_yes . '</strong> attending</span>, <span class="not_attending"><strong>' . $total_no . '</strong> not attending</span> and <span class="total">total: <strong>' . $total_users . '</strong></span>.</div>';
 
-$result = mysql_query("SELECT * FROM simple_rsvp ORDER BY name") or die(mysql_error());
+$result = mysqli_query($connection, "SELECT * FROM simple_rsvp ORDER BY name") or die(mysqli_error());
 
-while($row = mysql_fetch_array($result)) {
+while($row = mysqli_fetch_array($result)) {
     echo '<div class="list_details">';
     echo '<span class="list_delete"><a href="do_delete.php?id=' . $row['id'] . '">Delete</a></span>';
     echo '<strong>Name:</strong> <span class="list_name">' . $row['name'] . '</span><br>';
