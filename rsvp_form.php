@@ -5,7 +5,7 @@
 
 <div id="make_box">
 
-<div class="form_title"><h3>Répondez S'il Vous Plaît (RSVP) <span class="pls_respond"><em>Please Respond.</em></span></h3></div>
+<div class="form_title"><h3>Rï¿½pondez S'il Vous Plaï¿½t (RSVP) <span class="pls_respond"><em>Please Respond.</em></span></h3></div>
 <?php 
 // if there are any errors, display them
 if ($error != '')
@@ -83,9 +83,9 @@ jQuery(function($){
  if (isset($_POST['submit']))
  { 
  // get form data, making sure it is valid
- $name = mysql_real_escape_string(htmlspecialchars($_POST['name']));
- $email = mysql_real_escape_string(htmlspecialchars($_POST['email']));
- $phone = mysql_real_escape_string(htmlspecialchars($_POST['phone']));
+ $name = mysqli_real_escape_string($connection, htmlspecialchars($_POST['name']));
+ $email = mysqli_real_escape_string($connection, htmlspecialchars($_POST['email']));
+ $phone = mysqli_real_escape_string($connection, htmlspecialchars($_POST['phone']));
  $antispam = $_POST['antispam'];
  
  // set status when option is made
@@ -125,8 +125,8 @@ jQuery(function($){
  else
  {
  // save the data to the database
- mysql_query("INSERT simple_rsvp SET name='$name', email='$email', phone='$phone', status='$mystatus'")
- or die(mysql_error()); 
+ mysqli_query($connection, "INSERT simple_rsvp SET name='$name', email='$email', phone='$phone', status='$mystatus'")
+ or die(mysqli_error()); 
  
  // once saved, redirect back to the view page
  header("Location: index.php"); 

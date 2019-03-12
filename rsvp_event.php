@@ -16,12 +16,12 @@ if ($event_link == '') { $event_link = 'Not set'; }
 if ($event_details == '') { $event_details = 'Not set'; }
 if ($site_url == '') { $site_url = 'Not set'; }
 
-$byname = mysql_query("SELECT name FROM simple_rsvp ORDER BY id") or die(mysql_error());
-$total_users = mysql_num_rows($byname);
-$bystatus_yes = mysql_query("SELECT status FROM simple_rsvp WHERE status='Yes'") or die(mysql_error());
-$total_yes = mysql_num_rows($bystatus_yes);
-$bystatus_no = mysql_query("SELECT status FROM simple_rsvp WHERE status='No'") or die(mysql_error());
-$total_no = mysql_num_rows($bystatus_no);
+$byname = mysqli_query($connection, "SELECT name FROM simple_rsvp ORDER BY id") or die(mysqli_error());
+$total_users = mysqli_num_rows($byname);
+$bystatus_yes = mysqli_query($connection, "SELECT status FROM simple_rsvp WHERE status='Yes'") or die(mysqli_error());
+$total_yes = mysqli_num_rows($bystatus_yes);
+$bystatus_no = mysqli_query($connection, "SELECT status FROM simple_rsvp WHERE status='No'") or die(mysqli_error());
+$total_no = mysqli_num_rows($bystatus_no);
 
 if ($total_yes == '0' || $total_yes == '1') { $english1 = 'person'; }
 else if ($total_yes > '1') { $english1 = 'persons'; }
